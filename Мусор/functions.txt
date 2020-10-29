@@ -1,0 +1,20 @@
+  ------------------------------------
+Проверка версии PHP и наличия библиотек
+  ------------------------------------
+static function check_php_errors()
+    {
+        $error = array();
+        if (version_compare(phpversion(), '5.1.0', '<')) $error[] = 'PHP ' . phpversion();
+        if (!extension_loaded('mysql')) $error[] = 'mysql';
+        if (!extension_loaded('gd')) $error[] = 'gd';
+        if (!extension_loaded('zlib')) $error[] = 'zlib';
+        if (!extension_loaded('mbstring')) $error[] = 'mbstring';
+        return !empty($error) ? $error : false;
+    }
+
+  ------------------------------------
+Проверка на наличие ошибок
+  ------------------------------------
+return !empty($error) ? $error : false;
+    }
+  ------------------------------------

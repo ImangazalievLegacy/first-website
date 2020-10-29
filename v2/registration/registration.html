@@ -1,0 +1,53 @@
+<html>
+
+<head>
+
+	<META HTTP-EQUIV="Content-Type" Content="text/html; charset=windows-1251">
+	
+	<meta name="viewport" content="width=device-width">
+	
+	<title>Регистрация</title>
+
+</head>
+
+<body>
+
+<h2>Регистрация</h2>
+
+<form method="POST" action="registration.php">
+
+<p>Ник: </p> 
+<input type="text" name="username" />
+<p>E-mail: </p> 
+<input type="text" name="email" />
+<p>Пароль: </p> 
+<input id="pass" type="password" name="pass" /><label>
+
+<input type="checkbox"  id="check"/>Показать пароль<br /></label><br>
+<label><input type="checkbox" name="rules" value="agree" /> Согласен с правилами<br /></label>
+<input type="submit" value="Регистрация" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+	<script>
+	$('#check').change(function() {
+		var $pass = $('#pass');
+		if (!$pass.next().is('.pass-show')) {
+
+			$('<input class="pass-show">').val($pass.val()).hide().insertAfter($pass);
+		}
+
+		if ($(this).is(':checked')) {
+		$pass.hide().next().show();
+		}
+		else {
+			$pass.show().next().hide();
+		}
+	});
+	</script>
+
+
+</form>
+
+</body>
+</html>
